@@ -1,0 +1,23 @@
+set home-page=.config/tilde/index.html
+set input-autohide=true
+set status-bar=true
+set spell-checking=false
+set download-path=~/Downloads/
+set default-zoom=100
+set prevent-newwindow=true
+set webgl=true
+set hardware-acceleration-policy=ondemand
+set dark-mode=true
+
+set geolocation=never
+set javascript-can-open-windows-automatically=false
+set javascript-can-access-clipboard=false
+
+set completion-css=color:#d0d0d0;background-color:#141a21;
+set completion-hover-css=color:#d3d0c8;background-color:#141a21;
+set completion-selected-css=color:#d3d0c8;background-color:#515151;
+set input-css=color:#d3d0c8;background-color:#141a21;
+set input-error-css=color:#ff5555;background-color:#141a21;
+set status-css=color:#8be9fd;background-color:#141a21;
+set status-ssl-css=color:#c3e88d;background-color:#141a21;
+set status-ssl-invalid-css=color:#ff5555;background-color:#141a21;

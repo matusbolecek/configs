@@ -1,0 +1,4 @@
+# Patches
++ Autohide
++ Icon 
++ Xft

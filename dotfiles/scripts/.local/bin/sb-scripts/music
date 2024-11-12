@@ -1,0 +1,11 @@
+#! /bin/bash
+
+mocp -Q %state > /dev/null || exit
+[ $(mocp -Q %state) = "PLAY" ] || exit
+
+artist=$(mocp -Q %a)
+[ -z "$artist" ] && artist=$(mocp -Q %file | sed -e 's:.*Music/::' -e 's:/.*::')
+
+title=$(mocp -Q %file | sed -e 's:.*/::g' -e 's:\..*::' -e 's: (feat::g')
+
+echo "$artist - $title "

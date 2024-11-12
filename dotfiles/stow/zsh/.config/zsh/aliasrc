@@ -1,0 +1,45 @@
+#        _ _                     
+#   __ _| (_) __ _ ___  ___  ___ 
+#  / _` | | |/ _` / __|/ _ \/ __|
+# | (_| | | | (_| \__ \  __/\__ \
+#  \__,_|_|_|\__,_|___/\___||___/
+
+# Use neovim for vim
+[ -x "$(command -v nvim)" ] && alias vim="nvim"
+
+# exa instead of ls
+[ -x "$(command -v exa)" ] && alias ls="exa"
+
+# Shorter commands
+alias ll="ls -l"
+alias la="ls -a"
+alias gs="git status"
+alias nf="neofetch"
+alias vb="vimb"
+
+# Extra command options
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias rm="rm -vI"
+alias mkdir="mkdir -pv"
+alias stow="stow -t ~"
+
+# Configs
+alias zshrc="$EDITOR ~/.config/zsh/.zshrc"
+alias aliases="$EDITOR ~/.config/zsh/aliasrc"
+alias aliasrc="$EDITOR ~/.config/zsh/aliasrc"
+alias nvimrc="$EDITOR ~/.config/nvim/init.vim"
+alias alacritty.yml="$EDITOR ~/.config/alacritty/alacritty.yml"
+alias termiterc="$EDITOR ~/.config/termite/config"
+alias make.conf="sudo $EDITOR /etc/portage/make.conf"
+
+# Youtube-dl
+alias playlist-dl="youtube-dl --add-metadata -cio '%(autonumber)s-%(title)s.%(ext)s'"
+alias yt="youtube-dl"
+alias ytv="yt -f bestvideo"
+alias yta="yt --add-metadata -f bestaudio"
+
+# startx wm aliases
+alias dwm="WM=dwm startx"
+alias spectrwm="WM=spectrwm startx"
+alias sp="WM=spectrwm startx"

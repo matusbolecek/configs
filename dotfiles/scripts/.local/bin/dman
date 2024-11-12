@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#
+# Script name: dman
+# Description: Search for a manpage or get a random one.
+# Dependencies: dmenu, xargs
+# GitLab: https://www.gitlab.com/dwt1/dmscripts
+# License: https://www.gitlab.com/dwt1/dmscripts/LICENSE
+# Contributors: Derek Taylor
+
+# Defining the terminal emulator to use.
+DMTERM="alacritty -e"
+
+# An array of options to choose.
+        man -k . | awk '{$3="-"; print $0}' | \
+        dmenu -i -l 20 -p 'Search for:' | \
+        awk '{print $2, $1}' | tr -d '()' | xargs $DMTERM man
