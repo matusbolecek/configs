@@ -1,4 +1,4 @@
-#          _              
+#         _              
 #  _______| |__  _ __ ___ 
 # |_  / __| '_ \| '__/ __|
 #  / /\__ \ | | | | | (__ 
@@ -21,7 +21,7 @@ HISTFILE=~/.cache/zsh/history
 # Default programs and .local/bin
 [ -d "$HOME/.local/bin" ] && PATH="$HOME/.local/bin:$PATH"
 export EDITOR="nvim"
-export BROWSER="librewolf"
+export BROWSER="firefox"
 export READER="zathura"
 
 # Source aliases
@@ -67,12 +67,34 @@ tvb() {
 tabbed -c vimb "$1" -e
 }
 
+# python functions to speed up shit
+export JUPYTER_RUNTIME_DIR=$HOME/.local/share/jupyter/runtime
+
+pyconf() {
+  echo '{ "venvPath": ".", "venv": ".venv" }' > pyrightconfig.json
+}
+
+pipjup() {
+  echo "Installing ipykernel..."
+  pip install ipykernel jupytext
+  
+  # Grab current folder name (e.g., "my_project")
+  local DIR_NAME=${PWD##*/}
+  
+  echo "Registering kernel: $DIR_NAME"
+  python -m ipykernel install --user --name="$DIR_NAME" --display-name="Python ($DIR_NAME)"
+}
+
+venv() {
+  source .venv/bin/activate
+}
+
+
 # Load the Starship prompt + a random color script
-colorscript -r | tail -n +2
 eval "$(starship init zsh)"
 
 # Auto Suggestions
-source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # Syntax highlighting

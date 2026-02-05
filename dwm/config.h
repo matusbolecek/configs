@@ -19,10 +19,11 @@ static const char *fonts[]     = {"Mononoki Nerd Font:size=9:antialias=true:auto
                                   };
 
                                   
-static const char col_1[]  = "#0e1926"; /* background color of bar */
-static const char col_2[]  = "#0e1926"; /* border color unfocused windows */
+/* catpuccin.com/palette */
+static const char col_1[]  = "#1e1e2e"; /* background color of bar */
+static const char col_2[]  = "#1e1e2e"; /* border color unfocused windows */
 static const char col_3[]  = "#d7d7d7";
-static const char col_4[]  = "#1960bc"; /* border color focused windows and tags */
+static const char col_4[]  = "#74c7ec"; /* border color focused windows and tags */
 /* bar opacity 
  * 0xff is no transparency.
  * 0xee adds wee bit of transparency.
@@ -52,7 +53,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     iscentered   isfloating 	isterminal 	noswallow	isfakefullscreen monitor */
-	{ "Librewolf",     NULL,       NULL,  0,            0,           0,           	0,		-1,		0,		-1 },
+	{ "firefox",     NULL,       NULL,  0,            0,           0,           	0,		-1,		0,		-1 },
 /*	{ "Gimp",     NULL,       NULL,       0,            0,           1,           	0,		0,		0,		-1 }, 	 */
 	{ "discord",  NULL,       NULL,       1 << 8,       0,           0,           	0,		0,		0,		-1 },
 	{ "Brave",    NULL,       NULL,       0, 	    0,           0,           	0,		-1,		1,		-1 },
@@ -131,8 +132,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_a,  shiftview,       {.i = -1 } },
 	
 	// Launching Programs
-	{ MODKEY|Mod1Mask,             	XK_f,      spawn,          SHCMD("librewolf") },
-	{ MODKEY|Mod1Mask,             	XK_v,      spawn,          SHCMD("brave --new-window --start-fullscreen") },
+	{ MODKEY|Mod1Mask,             	XK_f,      spawn,          SHCMD("firefox") },
 	{ MODKEY|Mod1Mask,             	XK_b,      spawn,          SHCMD("brave --new-window") },
 	{ MODKEY|Mod1Mask,             	XK_e,      spawn,          SHCMD("pcmanfm") },
 	{ MODKEY|Mod1Mask,             	XK_l,      spawn,          SHCMD("slock") },

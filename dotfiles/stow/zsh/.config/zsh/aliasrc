@@ -16,6 +16,7 @@ alias la="ls -a"
 alias gs="git status"
 alias nf="neofetch"
 alias vb="vimb"
+alias fetch="fastfetch"
 
 # Extra command options
 alias cp="cp -iv"

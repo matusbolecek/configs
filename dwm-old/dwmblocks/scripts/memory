@@ -1,4 +1,0 @@
-#! /bin/bash 
-
-mem="$(free --mega | awk '/^Mem:/ {print $3 "MB" "/" $2 "MB"}')"
-echo -e "RAM: $mem "
