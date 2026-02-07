@@ -67,30 +67,7 @@ tvb() {
 tabbed -c vimb "$1" -e
 }
 
-# python functions to speed up shit
-export JUPYTER_RUNTIME_DIR=$HOME/.local/share/jupyter/runtime
-
-pyconf() {
-  echo '{ "venvPath": ".", "venv": ".venv" }' > pyrightconfig.json
-}
-
-pipjup() {
-  echo "Installing ipykernel..."
-  pip install ipykernel jupytext
-  
-  # Grab current folder name (e.g., "my_project")
-  local DIR_NAME=${PWD##*/}
-  
-  echo "Registering kernel: $DIR_NAME"
-  python -m ipykernel install --user --name="$DIR_NAME" --display-name="Python ($DIR_NAME)"
-}
-
-venv() {
-  source .venv/bin/activate
-}
-
-
-# Load the Starship prompt
+# Load the Starship prompt + a random color script
 eval "$(starship init zsh)"
 
 # Auto Suggestions

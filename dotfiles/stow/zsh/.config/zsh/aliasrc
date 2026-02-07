@@ -13,10 +13,8 @@
 # Shorter commands
 alias ll="ls -l"
 alias la="ls -a"
-alias gs="git status"
-alias nf="neofetch"
-alias vb="vimb"
 alias fetch="fastfetch"
+alias py="python"
 
 # Extra command options
 alias cp="cp -iv"
@@ -27,11 +25,9 @@ alias stow="stow -t ~"
 
 # Configs
 alias zshrc="$EDITOR ~/.config/zsh/.zshrc"
-alias aliases="$EDITOR ~/.config/zsh/aliasrc"
 alias aliasrc="$EDITOR ~/.config/zsh/aliasrc"
 alias nvimrc="$EDITOR ~/.config/nvim/init.vim"
-alias alacritty.yml="$EDITOR ~/.config/alacritty/alacritty.yml"
-alias termiterc="$EDITOR ~/.config/termite/config"
+alias alacritty.toml="$EDITOR ~/.config/alacritty/alacritty.toml"
 alias make.conf="sudo $EDITOR /etc/portage/make.conf"
 
 # Youtube-dl
