@@ -62,33 +62,8 @@ lfcd () {
 }
 bindkey -s '^f' 'lfcd\n'
 
-# Vimb with tabbed opens an url
-tvb() {
-tabbed -c vimb "$1" -e
-}
-
-# python functions to speed up shit
+# python + jupyter 
 export JUPYTER_RUNTIME_DIR=$HOME/.local/share/jupyter/runtime
-
-pyconf() {
-  echo '{ "venvPath": ".", "venv": ".venv" }' > pyrightconfig.json
-}
-
-pipjup() {
-  echo "Installing ipykernel..."
-  pip install ipykernel jupytext
-  
-  # Grab current folder name (e.g., "my_project")
-  local DIR_NAME=${PWD##*/}
-  
-  echo "Registering kernel: $DIR_NAME"
-  python -m ipykernel install --user --name="$DIR_NAME" --display-name="Python ($DIR_NAME)"
-}
-
-venv() {
-  source .venv/bin/activate
-}
-
 
 # Load the Starship prompt
 eval "$(starship init zsh)"

@@ -30,13 +30,21 @@ alias nvimrc="$EDITOR ~/.config/nvim/init.vim"
 alias alacritty.toml="$EDITOR ~/.config/alacritty/alacritty.toml"
 alias make.conf="sudo $EDITOR /etc/portage/make.conf"
 
-# Youtube-dl
-alias playlist-dl="youtube-dl --add-metadata -cio '%(autonumber)s-%(title)s.%(ext)s'"
-alias yt="youtube-dl"
+# Youtube-dl, now fork
+alias yt="yt-dlp"
 alias ytv="yt -f bestvideo"
 alias yta="yt --add-metadata -f bestaudio"
 
-# startx wm aliases
-alias dwm="WM=dwm startx"
-alias spectrwm="WM=spectrwm startx"
-alias sp="WM=spectrwm startx"
+# School 
+alias IPSA="cd ~/repos/uni/Semester\ 2/IPSA/"
+alias LA="cd ~/repos/uni/Semester\ 2/LinAlg/"
+alias MS="cd ~/repos/uni/Semester\ 2/MS/"
+
+# Python functions
+pyconf() {
+  echo '{ "venvPath": ".", "venv": ".venv" }' > pyrightconfig.json
+}
+
+venv() {
+  source .venv/bin/activate
+}
