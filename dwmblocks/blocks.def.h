@@ -5,8 +5,8 @@ static const Block blocks[] = {
 //
   	{" ", 		".local/bin/sb-scripts/kernel",	  	0,		        5},
 
-	{" ", 		".local/bin/sb-scripts/cputemp",	        2,		        6},
-
+//	{" ", 		".local/bin/sb-scripts/cputemp",	        2,		        6},
+//
 	{" ", 		".local/bin/sb-scripts/memory",	        2,		        7},
 
 	{" 🔊 ", 	".local/bin/sb-scripts/volume",		2,		        10},
