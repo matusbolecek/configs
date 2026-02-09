@@ -14,7 +14,7 @@
 alias ll="ls -l"
 alias la="ls -a"
 alias fetch="fastfetch"
-alias py="python"
+alias py="python3"
 
 # Extra command options
 alias cp="cp -iv"
