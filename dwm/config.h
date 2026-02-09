@@ -151,9 +151,9 @@ static Key keys[] = {
 	{ MODKEY|Mod1Mask,             	XK_F5,     spawn,          SHCMD("killall dwmblocks && dwmblocks") },
 
 	
-	// Taking screenshots with flameshot, see dotfiles/flameshot.conf
-	{ ControlMask,             	XK_Print,      spawn,          SHCMD("flameshot gui") },
-	{ 0,             		XK_Print,      spawn,          SHCMD("flameshot full -c") },
+	// Taking screenshots with maim. Requires xclip and slop 
+	{ ControlMask,             	XK_Print,      spawn,          SHCMD("maim -s | xclip -selection clipboard -t image/png") },
+	{ 0,             		XK_Print,      spawn,          SHCMD("maim ~/Pictures/$(date +%s).png") },
 
 	// Keyboard layout switching + dwmblocks signal to change the displayed layout
 	{ MODKEY,             		XK_space,  spawn,          SHCMD("if [ $(setxkbmap -query | grep -o -e us -e sk)  = 'us' ]; then setxkbmap sk; else setxkbmap us; fi ; pkill -RTMIN+20 dwmblocks") }, 
