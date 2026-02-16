@@ -8,7 +8,7 @@
 [ -x "$(command -v nvim)" ] && alias vim="nvim"
 
 # exa instead of ls
-[ -x "$(command -v exa)" ] && alias ls="exa"
+[ -x "$(command -v eza)" ] && alias ls="eza"
 
 # Shorter commands
 alias ll="ls -l"
