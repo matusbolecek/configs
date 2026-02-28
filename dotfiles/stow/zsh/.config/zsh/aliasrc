@@ -26,7 +26,8 @@ alias stow="stow -t ~"
 # Configs
 alias zshrc="$EDITOR ~/.config/zsh/.zshrc"
 alias aliasrc="$EDITOR ~/.config/zsh/aliasrc"
-alias nvimrc="$EDITOR ~/.config/nvim/init.vim"
+alias nvimrc="$EDITOR ~/.config/nvim/init.lua"
+alias vimplug="$EDITOR ~/.config/nvim/lua/plugins/init.lua"
 alias alacritty.toml="$EDITOR ~/.config/alacritty/alacritty.toml"
 alias make.conf="sudo $EDITOR /etc/portage/make.conf"
 
