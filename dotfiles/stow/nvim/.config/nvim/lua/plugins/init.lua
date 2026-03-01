@@ -73,6 +73,9 @@ return {
     vim.keymap.set("n", "<F9>", function()
       require("r.send").cmd("plot_open()")
     end, { desc = "Open httpgd plot viewer" })
+    vim.keymap.set("n", "<F10>", function()
+      require("r.browser").start()
+    end, { desc = "Open R object browser" })
   end,
 },
 

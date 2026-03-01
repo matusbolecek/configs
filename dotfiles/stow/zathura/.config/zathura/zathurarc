@@ -7,15 +7,7 @@ map i recolor
 map r rotate
 map R reload
 
-set default-bg 			"#141a21"
-set recolor-darkcolor		"#FFFFFF"
-set recolor-lightcolor		"#141a21"
-set statusbar-fg 		"#FFFFFF"
-set statusbar-bg		"#141a21"
-set inputbar-fg 		"#FFFFFF"
-set inputbar-bg			"#141a21"
-set highlight-color		"#1960bc"
-set highlight-active-color	"#129fe8"
+include catppuccin-mocha
 
 set recolor-keephue true
 set recolor true
