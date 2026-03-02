@@ -138,18 +138,10 @@ static Key keys[] = {
 	{ MODKEY|Mod1Mask,             	XK_l,      spawn,          SHCMD("slock") },
 	{ MODKEY|Mod1Mask,             	XK_h,      spawn,          SHCMD("virt-manager") },
 	{ MODKEY|Mod1Mask,             	XK_q,      spawn,          SHCMD("lxsession-logout") },
-	{ MODKEY|Mod1Mask,             	XK_m,      spawn,          SHCMD("alacritty -e mocp") },
 	{ MODKEY|Mod1Mask,             	XK_p,      spawn,          SHCMD("killall picom || picom &") },
-
-	// Dmenu Scripts
-	{ MODKEY,	             	XK_BackSpace,      spawn,          SHCMD("dmconf") },
-	{ MODKEY|ShiftMask,            	XK_BackSpace,      spawn,          SHCMD("dman") },
-	{ MODKEY,            		XK_p,    	   spawn,          SHCMD("dmtuxi") },
-	{ MODKEY|ShiftMask,            	XK_p,    	   spawn,          SHCMD("dmsearch") },
 
 	// Restart the dwmblocks statusbar
 	{ MODKEY|Mod1Mask,             	XK_F5,     spawn,          SHCMD("killall dwmblocks && dwmblocks") },
-
 	
 	// Taking screenshots with maim. Requires xclip and slop 
 	{ ControlMask,             	XK_Print,      spawn,          SHCMD("maim -s | xclip -selection clipboard -t image/png") },
@@ -165,6 +157,9 @@ static Key keys[] = {
 
 	{ 0,      XF86XK_AudioPrev,      	spawn,          SHCMD("mocp --previous") },
 	{ 0,      XF86XK_AudioNext,      	spawn,          SHCMD("mocp --next") },
+
+  // Timer - bound to F7
+  { 0, XF86XK_AudioPlay, spawn, SHCMD("$HOME/.local/bin/sb-scripts/timer_toggle.sh ; pkill -RTMIN+8 dwmblocks") },
 
 	// Tagging
 	TAGKEYS(                        XK_1,                      0)

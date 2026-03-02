@@ -3,6 +3,8 @@ static const Block blocks[] = {
 	/*Icon*/		/*Command*/	 		/*Update Interval*/	/*Update Signal*/
 //  	{"", 		".local/bin/sb-scripts/music",	  		60,		        4},
 //
+    {" ", ".local/bin/sb-scripts/timer.sh",              30,       8     },
+
   	{" ", 		".local/bin/sb-scripts/kernel",	  	0,		        5},
 
 //	{" ", 		".local/bin/sb-scripts/cputemp",	        2,		        6},
