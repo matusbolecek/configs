@@ -1,0 +1,47 @@
+#!/usr/bin/env sh
+
+# Bar Configuration
+# Yabai doesn't have a built-in bar like dwm. 
+# Most users use 'Sketchybar' or 'SimpleBar'. 
+# We disable the external bar offset for now.
+yabai -m config external_bar                 off:0:0
+yabai -m config menubar_opacity              1.0
+
+# Mouse Settings (matches your config.h click behaviors)
+# modifier 'alt' is option key
+yabai -m config mouse_modifier               alt
+yabai -m config mouse_action1                move
+yabai -m config mouse_action2                resize
+yabai -m config mouse_drop_action            swap
+yabai -m config focus_follows_mouse          autoraise
+
+# Layout Settings
+yabai -m config layout                       bsp
+yabai -m config auto_balance                 off
+yabai -m config split_ratio                  0.50
+yabai -m config window_placement             second_child
+
+# Gaps & Borders (From your config.h)
+# gappx = 6
+yabai -m config top_padding                  6
+yabai -m config bottom_padding               6
+yabai -m config left_padding                 6
+yabai -m config right_padding                6
+yabai -m config window_gap                   6
+
+# Visuals
+# borderpx = 2
+yabai -m config window_border                on
+yabai -m config window_border_width          2
+yabai -m config window_border_radius         0
+
+# Colors from your config.h (Catppuccin)
+# Format is 0xAARRGGBB
+# col_4 (Focused) = #74c7ec
+yabai -m config active_window_border_color   0xff74c7ec
+# col_2 (Normal) = #1e1e2e
+yabai -m config normal_window_border_color   0xff1e1e2e
+# insert_feedback (Visual cue when moving windows)
+yabai -m config insert_feedback_color        0xff74c7ec
+
+echo "yabai configuration loaded.."
