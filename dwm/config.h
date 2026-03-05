@@ -57,6 +57,7 @@ static const Rule rules[] = {
 /*	{ "Gimp",     NULL,       NULL,       0,            0,           1,           	0,		0,		0,		-1 }, 	 */
 	{ "discord",  NULL,       NULL,       1 << 8,       0,           0,           	0,		0,		0,		-1 },
 	{ "Brave",    NULL,       NULL,       0, 	    0,           0,           	0,		-1,		1,		-1 },
+	{ "Kitty", NULL,     NULL,        0,            0,           0,             1,		0,		0,	        -1 },
 	{ "Alacritty", NULL,     NULL,        0,            0,           0,             1,		0,		0,	        -1 },
 	{ NULL,      NULL,     "Event Tester", 0,           0,           0,             0,	      	1,		0,		-1 }, /* xev */
 
@@ -92,8 +93,8 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]    = { "dmenu_run", "-h", "22", "-p", "Run: ", NULL };
-static const char *termcmdzsh[]  = { "alacritty", "-e", "zsh",  NULL };
-static const char *termcmdbash[]  = { "alacritty", "-e", "bash",  NULL };
+static const char *termcmdzsh[]  = { "kitty", "-e", "zsh",  NULL };
+static const char *termcmdbash[]  = { "kitty", "-e", "bash",  NULL };
 // static const char *tabvimbcmd[]  = { "tabbed", "vimb", "-e", NULL };
 
 #include "shiftview.c"
