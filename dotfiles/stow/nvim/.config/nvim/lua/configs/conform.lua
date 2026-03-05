@@ -3,15 +3,16 @@ local options = {
     lua = { "stylua" },
     r = { "air" },
     rmd = { "injected" },
-    -- css = { "prettier" },
-    -- html = { "prettier" },
+    python = { "black" },
   },
-
+  formatters = {
+    black = {
+      command = vim.fn.stdpath("data") .. "/mason/bin/black",
+    },
+  },
   format_on_save = {
-  -- These options will be passed to conform.format()
-  timeout_ms = 500,
-  lsp_fallback = true,
+    timeout_ms = 500,
+    lsp_fallback = true,
   },
 }
-
 return options
