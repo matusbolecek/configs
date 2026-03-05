@@ -15,7 +15,7 @@ alias ll="ls -l"
 alias la="ls -a"
 alias fetch="fastfetch"
 alias py="python3"
-alias nv="neovim"
+alias nv="nvim"
 
 # Extra command options
 alias cp="cp -iv"
@@ -44,15 +44,6 @@ alias MS="cd ~/repos/uni/Semester\ 2/MS/"
 
 # Mac tiling
 alias fm="./.config/toggle-focus.sh"
-
-# Python functions
-pyconf() {
-  echo '{ "venvPath": ".", "venv": ".venv" }' > pyrightconfig.json
-}
-
-venv() {
-  source .venv/bin/activate
-}
 
 # Zathura scripting 
 zo() {

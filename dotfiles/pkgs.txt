@@ -23,5 +23,5 @@ surf-git
 maim
 xclip
 slop
-tree-sitter-cli
+tree-sitter-git
 xdotool

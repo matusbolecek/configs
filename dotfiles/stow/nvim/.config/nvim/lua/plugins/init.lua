@@ -46,6 +46,9 @@ return {
       ["<C-j>"] = cmp.mapping.select_next_item(),
       ["<C-k>"] = cmp.mapping.select_prev_item(),
     })
+    opts.sources = vim.list_extend(opts.sources or {}, {
+      { name = "otter" },
+    })
     return opts
   end,
 },
@@ -71,7 +74,7 @@ return {
     lazy = false,
     config = function()
       require("r").setup({
-        auto_start      = "on startup",
+        auto_start      = "no",
         pipe_version    = "native",
         rconsole_width  = 60,
         rconsole_height = 15,
@@ -153,6 +156,54 @@ return {
       },
       max_width = 100,
       max_height = 20,
+      max_height_window_percentage = math.huge,
+      max_width_window_percentage = math.huge,
     },
   },
+    {
+    "benlubas/molten-nvim",
+    lazy = false,
+    build = ":UpdateRemotePlugins",
+    dependencies = { "3rd/image.nvim" },
+    init = function()
+      -- Image rendering via Kitty
+      vim.g.molten_image_provider = "image.nvim"
+
+      -- Output window settings
+      vim.g.molten_output_win_max_height = 20
+      vim.g.molten_virt_text_output = true       -- show output as virtual text
+      vim.g.molten_virt_lines_off_by_1 = true    -- better for markdown/python files
+      vim.g.molten_wrap_output = true
+      vim.g.molten_auto_open_output = false       -- don't auto-open; use virt text instead
+      vim.g.molten_use_border_highlights = true   -- color-coded borders per cell state
+    end,
+  },
+{
+  "quarto-dev/quarto-nvim",
+  lazy = false,
+  dependencies = {
+    "jmbuhr/otter.nvim",
+    "nvim-treesitter/nvim-treesitter",
+  },
+  opts = {
+    lspFeatures = {
+      enabled = true,
+      chunks = "curly",
+      languages = { "python" },
+      diagnostics = {
+        enabled = true,
+        triggers = { "BufWritePost" },
+      },
+      completion = { enabled = true },
+    },
+    codeRunner = {
+      enabled = true,
+      default_method = "molten",
+    },
+  },
+},
+{
+  "jmbuhr/otter.nvim",
+  opts = {},
+},
 }

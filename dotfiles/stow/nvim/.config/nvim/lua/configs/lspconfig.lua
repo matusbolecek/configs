@@ -16,6 +16,7 @@ for _, name in ipairs(servers) do
   })
 
   if name == "pyright" then
+    config.filetypes = { "python" }
     config.settings = {
       python = {
         analysis = {
@@ -29,6 +30,7 @@ for _, name in ipairs(servers) do
 
   if name == "r_language_server" then
     local original_on_attach = nvlsp.on_attach
+    config.filetypes = { "r", "rmd" }
     config.on_attach = function(client, bufnr)
       client.server_capabilities.documentFormattingProvider = false
       original_on_attach(client, bufnr)

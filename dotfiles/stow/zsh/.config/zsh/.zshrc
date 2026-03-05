@@ -30,6 +30,9 @@ export READER="zathura"
 # Source aliases
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliasrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliasrc"
 
+# Source python specific
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/zshpyrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/zshpyrc"
+
 # Basic auto/tab complete:
 autoload -U compinit
 zstyle ':completion:*' menu select
@@ -48,9 +51,6 @@ lfcd () {
     fi
 }
 bindkey -s '^f' 'lfcd\n'
-
-# python + jupyter 
-export JUPYTER_RUNTIME_DIR=$HOME/.local/share/jupyter/runtime
 
 # Load the Starship prompt
 eval "$(starship init zsh)"

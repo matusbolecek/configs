@@ -1,0 +1,33 @@
+# Python specific configs for zsh
+
+export JUPYTER_RUNTIME_DIR=$HOME/.local/share/jupyter/runtime
+
+pyconf() {
+  echo '{ "venvPath": ".", "venv": ".venv" }' > pyrightconfig.json
+}
+
+venv() {
+  source .venv/bin/activate
+}
+
+mkvenv() {
+  local venv_dir="${1:-.venv}"
+
+  local packages=(
+    jupyter_client
+    ipykernel
+    cairosvg
+    pnglatex
+    plotly
+    kaleido
+    pyperclip
+    nbformat
+    pillow
+  )
+
+  python3 -m venv "$venv_dir" && \
+    "$venv_dir/bin/python" -m pip install --upgrade pip --quiet && \
+    "$venv_dir/bin/python" -m pip install "${packages[@]}"
+
+  echo "✓ venv ready at $venv_dir"
+}
