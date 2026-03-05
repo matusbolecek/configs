@@ -1,4 +1,5 @@
 require("configs.math_mappings").setup()
+require("configs.export_pdf").setup()
 
 return {
   {

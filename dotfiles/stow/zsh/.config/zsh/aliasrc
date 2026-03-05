@@ -15,6 +15,7 @@ alias ll="ls -l"
 alias la="ls -a"
 alias fetch="fastfetch"
 alias py="python3"
+alias nv="neovim"
 
 # Extra command options
 alias cp="cp -iv"
