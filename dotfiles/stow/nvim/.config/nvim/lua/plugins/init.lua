@@ -33,12 +33,9 @@ return {
   "hrsh7th/nvim-cmp",
   opts = function(_, opts)
     local cmp = require "cmp"
-    local luasnip = require "luasnip"
     opts.mapping = vim.tbl_extend("force", opts.mapping, {
       ["<Tab>"] = cmp.mapping(function(fallback)
-        if luasnip.expand_or_jumpable() then
-          luasnip.expand_or_jump()
-        elseif cmp.visible() then
+        if cmp.visible() then
           cmp.confirm { select = true }
         else
           fallback()
@@ -102,6 +99,16 @@ return {
       enable_autosnippets = true,
     }))
     require("luasnip.loaders.from_lua").load({ paths = "./lua/snippets" })
+
+    -- LuaSnip jumps on C-l/C-h, never on Tab
+    vim.keymap.set({ "i", "s" }, "<C-l>", function()
+      local ls = require("luasnip")
+      if ls.jumpable(1) then ls.jump(1) end
+    end)
+    vim.keymap.set({ "i", "s" }, "<C-h>", function()
+      local ls = require("luasnip")
+      if ls.jumpable(-1) then ls.jump(-1) end
+    end)
   end,
 },
   {
