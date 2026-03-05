@@ -52,3 +52,17 @@ pyconf() {
 venv() {
   source .venv/bin/activate
 }
+
+# Zathura scripting 
+zo() {
+  export _TABBED_XID=$(tabbed -c -b -d)
+  zathura -e $_TABBED_XID "$1" &
+}
+
+z() {
+  if ! xdotool getwindowname $_TABBED_XID &>/dev/null; then
+    zo "$1"
+  else
+    zathura -e $_TABBED_XID "$1" &
+  fi
+}

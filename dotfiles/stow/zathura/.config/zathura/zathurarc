@@ -1,6 +1,5 @@
 set statusbar-h-padding 0 
 set statusbar-v-padding 0 
-set page-padding 1
 
 map p print
 map i recolor
@@ -10,4 +9,4 @@ map R reload
 include catppuccin-mocha
 
 set recolor-keephue true
-set recolor true
+set recolor false 

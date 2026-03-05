@@ -1,13 +1,13 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const char font[]        = "monospace:size=9";
-static const char* normbgcolor  = "#222222";
-static const char* normfgcolor  = "#cccccc";
-static const char* selbgcolor   = "#555555";
-static const char* selfgcolor   = "#ffffff";
-static const char* urgbgcolor   = "#111111";
-static const char* urgfgcolor   = "#cc0000";
+static const char font[]        = "Mononoki Nerd Font:size=9:antialias=true:autohint=true";
+static const char* normbgcolor  = "#1e1e2e"; /* Base */
+static const char* normfgcolor  = "#cdd6f4"; /* Text */
+static const char* selbgcolor   = "#74c7ec"; /* Sapphire (matches col_4) */
+static const char* selfgcolor   = "#1e1e2e"; /* Base (dark on accent) */
+static const char* urgbgcolor   = "#1e1e2e"; /* Base */
+static const char* urgfgcolor   = "#f38ba8"; /* Red */
 static const char before[]      = "<";
 static const char after[]       = ">";
 static const char titletrim[]   = "...";
@@ -36,13 +36,13 @@ static Bool npisrelative  = False;
 #define MODKEY ControlMask
 static const Key keys[] = {
 	/* modifier             key        function     argument */
-	{ MODKEY|ShiftMask,     XK_Return, focusonce,   { 0 } },
-	{ MODKEY|ShiftMask,     XK_Return, spawn,       { 0 } },
+	{ MODKEY|Mod1Mask,      XK_Return, focusonce,   { 0 } },
+	{ MODKEY|Mod1Mask,      XK_Return, spawn,       { 0 } },
 
-	{ MODKEY|ShiftMask,     XK_l,      rotate,      { .i = +1 } },
-	{ MODKEY|ShiftMask,     XK_h,      rotate,      { .i = -1 } },
-	{ MODKEY|ShiftMask,     XK_j,      movetab,     { .i = -1 } },
-	{ MODKEY|ShiftMask,     XK_k,      movetab,     { .i = +1 } },
+	{ MODKEY|Mod1Mask,      XK_l,      rotate,      { .i = +1 } },
+	{ MODKEY|Mod1Mask,      XK_h,      rotate,      { .i = -1 } },
+	{ MODKEY|Mod1Mask,      XK_j,      movetab,     { .i = -1 } },
+	{ MODKEY|Mod1Mask,      XK_k,      movetab,     { .i = +1 } },
 	{ MODKEY,               XK_Tab,    rotate,      { .i = 0 } },
 
 	{ MODKEY,               XK_grave,  spawn,       SETPROP("_TABBED_SELECT_TAB") },
