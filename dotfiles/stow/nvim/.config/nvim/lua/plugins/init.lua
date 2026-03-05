@@ -77,7 +77,7 @@ return {
         pipe_version    = "native",
         rconsole_width  = 60,
         rconsole_height = 15,
-        external_term   = "alacritty",
+        external_term   = "kitty",
       })
       vim.keymap.set("n", "<F9>", function()
         require("r.send").cmd("plot_open()")
@@ -105,19 +105,46 @@ return {
   end,
 },
   {
+    "jbyuki/nabla.nvim",
+    keys = {
+      { "<leader>mp", function() require("nabla").popup() end, desc = "Math Popup" },
+    },
+    config = function()
+    end
+  },
+  {
     "MeanderingProgrammer/render-markdown.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter", "3rd/image.nvim" },
     ft = { "markdown" },
     opts = {
       latex = {
-        enabled      = true,
-        converter    = "latex2text",
-        render_modes = { "n", "c" },
+        enabled = true,
+        converter = "latex2text", 
+        render_modes = { "n", "c" }, 
+      },
+      win_options = {
+        conceallevel = {
+          default = 2,
+          rendered = 2,
+        },
       },
     },
   },
   {
     "3rd/image.nvim",
-    opts = {},
+    opts = {
+      backend = "kitty",
+      integrations = {
+        markdown = {
+          enabled = true,
+          clear_in_insert_mode = true,
+          download_remote_images = true,
+          only_render_image_at_cursor = false,
+          filetypes = { "markdown", "vimwiki" }, 
+        },
+      },
+      max_width = 100,
+      max_height = 20,
+    },
   },
 }
