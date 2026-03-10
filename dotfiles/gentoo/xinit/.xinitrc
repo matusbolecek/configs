@@ -49,9 +49,22 @@ if [ -d "$xinitdir"/xinitrc.d ] ; then
 	unset f
 fi
 
+# Startup block
 picom &
 dwmblocks &
-# xrandr --output DP-0 --off --output DP-1 --off --output HDMI-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2 --off --output DP-3 --off --output DP-4 --primary --mode 1920x1080 --rate 144.00 --pos 1920x0 --rotate normal --output DP-5 --off --output USB-C-0 --off &
-# dunst &
+dunst &
 xwallpaper --zoom "$(find ~/repos/linux/wallpapers/1 -type f | shuf -n 1)" &
+
+# Sound
+export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
+pipewire &
+pipewire-pulse &
+
+timeout 10 sh -c '
+  until pactl info >/dev/null 2>&1; do
+    sleep 0.2
+  done
+'
+wireplumber &
+
 exec dwm
