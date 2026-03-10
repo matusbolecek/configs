@@ -52,15 +52,20 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     iscentered   isfloating 	isterminal 	noswallow	isfakefullscreen monitor */
-	{ "firefox",     NULL,       NULL,  0,            0,           0,           	0,		-1,		0,		-1 },
-/*	{ "Gimp",     NULL,       NULL,       0,            0,           1,           	0,		0,		0,		-1 }, 	 */
-	{ "discord",  NULL,       NULL,       1 << 8,       0,           0,           	0,		0,		0,		-1 },
-	{ "Brave",    NULL,       NULL,       0, 	    0,           0,           	0,		-1,		1,		-1 },
-	{ "Kitty", NULL,     NULL,        0,            0,           0,             1,		0,		0,	        -1 },
-	{ "Alacritty", NULL,     NULL,        0,            0,           0,             1,		0,		0,	        -1 },
-	{ NULL,      NULL,     "Event Tester", 0,           0,           0,             0,	      	1,		0,		-1 }, /* xev */
 
+	/* class        instance    title             tags mask   iscentered   isfloating 	isterminal 	noswallow	  isfakefull  monitor resizehints*/
+	{ "firefox",    NULL,       NULL,             0,          0,           0,           0,		      -1,		      0,		      -1,     1},
+	{ "fakefull",   NULL,       NULL,             0,          0,           0,           0,		      -1,		      1,		      -1,     0},
+	{ "Kitty",      NULL,       NULL,             0,          0,           0,           1,		      0,		      0,	        -1,     1},
+
+  /* xev */
+	{ NULL,         NULL,       "Event Tester",   0,          0,           0,           0,	      	1,		      0,		      -1,     1}, 
+ 
+  // Redundant ones, might remove at some point
+ 	{ "Gimp",       NULL,       NULL,             0,          0,           1,           0,		      0,		      0,		      -1,     1}, 
+	{ "discord",    NULL,       NULL,             1 << 8,     0,           0,           0,		      0,		      0,		      -1,     1},
+	{ "Brave",      NULL,       NULL,             0, 	        0,           0,           0,		      -1,		      1,		      -1,     1},
+	{ "Alacritty",  NULL,       NULL,             0,          0,           0,           1,		      0,		      0,	        -1,     1},
 };
 
 /* layout(s) */
@@ -95,14 +100,14 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[]    = { "dmenu_run", "-h", "22", "-p", "Run: ", NULL };
 static const char *termcmdzsh[]  = { "kitty", "-e", "zsh",  NULL };
 static const char *termcmdbash[]  = { "kitty", "-e", "bash",  NULL };
-// static const char *tabvimbcmd[]  = { "tabbed", "vimb", "-e", NULL };
 
 #include "shiftview.c"
 #include "X11/XF86keysym.h"
 static Key keys[] = {
+
 	/* modifier                     key        function        argument */
-	{ MODKEY|ShiftMask,     	XK_Return, spawn,          {.v = dmenucmd } },
-	{ MODKEY,               	XK_Return, spawn,          {.v = termcmdzsh } },
+	{ MODKEY|ShiftMask,     	      XK_Return, spawn,          {.v = dmenucmd } },
+	{ MODKEY,               	      XK_Return, spawn,          {.v = termcmdzsh } },
 	{ MODKEY|Mod1Mask,             	XK_Return, spawn,          {.v = termcmdbash} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,             XK_j,      rotatestack,    {.i = +1 } },
@@ -122,15 +127,15 @@ static Key keys[] = {
 	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_c,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[5]} },
-	{ MODKEY|ShiftMask,		XK_f,      togglefloating, {0} },
+	{ MODKEY|ShiftMask,		          XK_f,      togglefloating, {0} },
 	{ MODKEY,                       XK_Tab,    view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY,                       XK_s,  shiftview,       {.i = +1 } },
-	{ MODKEY,                       XK_a,  shiftview,       {.i = -1 } },
+	{ MODKEY,                       XK_s,      shiftview,      {.i = +1 } },
+	{ MODKEY,                       XK_a,      shiftview,      {.i = -1 } },
 	
 	// Launching Programs
 	{ MODKEY|Mod1Mask,             	XK_f,      spawn,          SHCMD("firefox") },
@@ -145,26 +150,27 @@ static Key keys[] = {
 	{ MODKEY|Mod1Mask,             	XK_F5,     spawn,          SHCMD("killall dwmblocks && dwmblocks") },
 	
 	// Taking screenshots with maim. Requires xclip and slop 
-	{ ControlMask,             	XK_Print,      spawn,          SHCMD("maim -s | xclip -selection clipboard -t image/png") },
-	{ 0,             		XK_Print,      spawn,          SHCMD("maim ~/Pictures/$(date +%s).png") },
+	{ ControlMask,             	    XK_Print,  spawn,          SHCMD("maim -s | xclip -selection clipboard -t image/png") },
+	{ 0,             		            XK_Print,  spawn,          SHCMD("maim ~/Pictures/$(date +%s).png") },
 
 	// Keyboard layout switching + dwmblocks signal to change the displayed layout
-	{ MODKEY,             		XK_space,  spawn,          SHCMD("if [ $(setxkbmap -query | grep -o -e us -e sk)  = 'us' ]; then setxkbmap sk; else setxkbmap us; fi ; pkill -RTMIN+20 dwmblocks") }, 
+	{ MODKEY,             		      XK_space,  spawn,          SHCMD("if [ $(setxkbmap -query | grep -o -e us -e sk)  = 'us' ]; then setxkbmap sk; else setxkbmap us; fi ; pkill -RTMIN+20 dwmblocks") }, 
 
 	// Media controls / function keys
-	{ 0,      XF86XK_AudioMute,      	spawn,          SHCMD("pamixer -t ; pkill -RTMIN+10 dwmblocks") },
-	{ 0,      XF86XK_AudioRaiseVolume,      spawn,          SHCMD("pamixer -i 4 ; pkill -RTMIN+10 dwmblocks") },
-	{ 0,      XF86XK_AudioLowerVolume,      spawn,          SHCMD("pamixer -d 4 ; pkill -RTMIN+10 dwmblocks") },
+	{ 0,      XF86XK_AudioMute,      	         spawn,          SHCMD("pamixer -t ; pkill -RTMIN+10 dwmblocks") },
+	{ 0,      XF86XK_AudioRaiseVolume,         spawn,          SHCMD("pamixer -i 4 ; pkill -RTMIN+10 dwmblocks") },
+	{ 0,      XF86XK_AudioLowerVolume,         spawn,          SHCMD("pamixer -d 4 ; pkill -RTMIN+10 dwmblocks") },
 
-	{ 0,      XF86XK_AudioPrev,      	spawn,          SHCMD("mocp --previous") },
-	{ 0,      XF86XK_AudioNext,      	spawn,          SHCMD("mocp --next") },
+  // Next / prev mapped to MOC - redundant, but might come back at some point
+	{ 0,      XF86XK_AudioPrev,      	         spawn,          SHCMD("mocp --previous") },
+	{ 0,      XF86XK_AudioNext,      	         spawn,          SHCMD("mocp --next") },
 
   // Timer - bound to F7
-  { 0, XF86XK_AudioPlay, spawn, SHCMD("$HOME/.local/bin/sb-scripts/timer_toggle.sh ; pkill -RTMIN+8 dwmblocks") },
+  { 0, XF86XK_AudioPlay,                     spawn,          SHCMD("$HOME/.local/bin/sb-scripts/timer_toggle.sh ; pkill -RTMIN+8 dwmblocks") },
 
   // Brightness control
-  { 0, XF86XK_MonBrightnessDown, spawn, SHCMD("brightnessctl set 10%-") },
-  { 0, XF86XK_MonBrightnessUp,   spawn, SHCMD("brightnessctl set 10%+") },
+  { 0, XF86XK_MonBrightnessDown,             spawn,          SHCMD("brightnessctl set 10%-") },
+  { 0, XF86XK_MonBrightnessUp,               spawn,          SHCMD("brightnessctl set 10%+") },
 
 	// Tagging
 	TAGKEYS(                        XK_1,                      0)
