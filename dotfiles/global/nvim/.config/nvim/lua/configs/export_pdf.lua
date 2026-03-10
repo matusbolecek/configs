@@ -10,6 +10,7 @@ M.setup = function()
       return
     end
 
+    vim.cmd("w")
     vim.notify("Compiling " .. vim.fn.expand("%:t") .. "...", vim.log.levels.INFO)
     vim.fn.jobstart({ "pandoc", file, "-o", out, "--pdf-engine=xelatex" }, {
       detach = false,

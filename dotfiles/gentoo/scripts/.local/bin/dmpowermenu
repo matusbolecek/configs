@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Options
+OPTIONS="Poweroff\nRestart\nHibernate\nLogout\nCancel"
+
+# Show dmenu
+CHOICE=$(echo -e "$OPTIONS" | dmenu -i -p "Power Menu:")
+
+case "$CHOICE" in
+    Poweroff)
+        doas poweroff
+        ;;
+    Restart)
+        doas reboot
+        ;;
+    Hibernate)
+        # Requires sys-power/hibernate-script
+        doas hibernate
+        notify-send "Hibernate not configured yet" 2>/dev/null || echo "Hibernate not configured"
+        ;;
+    Logout)
+        killall dwm
+        ;;
+    *)
+        # Cancel or dmenu closed — do nothing
+        ;;
+esac

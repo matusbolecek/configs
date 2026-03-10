@@ -371,7 +371,7 @@ return {
   s({ trig = "Vmat",   snippetType = "autosnippet" }, fmta("\\begin{Vmatrix}\n<>\n\\end{Vmatrix}",   { i(1) }), { condition = in_mathzone }),
   s({ trig = "matrix", snippetType = "autosnippet" }, fmta("\\begin{matrix}\n<>\n\\end{matrix}",     { i(1) }), { condition = in_mathzone }),
   s({ trig = "cases",  snippetType = "autosnippet" }, fmta("\\begin{cases}\n<>\n\\end{cases}",       { i(1) }), { condition = in_mathzone }),
-  s({ trig = "align",  snippetType = "autosnippet" }, fmta("\\begin{align}\n<>\n\\end{align}",       { i(1) }), { condition = in_mathzone }),
+  s({ trig = "align",  snippetType = "autosnippet" }, fmta("\\begin{aligned}\n<>\n\\end{aligned}",       { i(1) }), { condition = in_mathzone }),
   s({ trig = "array",  snippetType = "autosnippet" }, fmta("\\begin{array}\n<>\n\\end{array}",       { i(1) }), { condition = in_mathzone }),
 
   -- ── Brackets ──────────────────────────────────────────────────────────────
@@ -381,11 +381,11 @@ return {
   s({ trig = "ceil",  snippetType = "autosnippet" }, fmta("\\lceil <> \\rceil <>",   { i(1), i(2) }), { condition = in_mathzone }),
   s({ trig = "floor", snippetType = "autosnippet" }, fmta("\\lfloor <> \\rfloor <>", { i(1), i(2) }), { condition = in_mathzone }),
   s({ trig = "mod",   snippetType = "autosnippet" }, fmta("|<>|<>",                  { i(1), i(2) }), { condition = in_mathzone }),
-  s({ trig = "lr(",   snippetType = "autosnippet" }, fmta("\\left( <> \\right) <>",  { i(1), i(2) }), { condition = in_mathzone }),
-  s({ trig = "lr{",   snippetType = "autosnippet" }, fmta("\\left\\{ <> \\right\\} <>", { i(1), i(2) }), { condition = in_mathzone }),
-  s({ trig = "lr[",   snippetType = "autosnippet" }, fmta("\\left[ <> \\right] <>",  { i(1), i(2) }), { condition = in_mathzone }),
-  s({ trig = "lr|",   snippetType = "autosnippet" }, fmta("\\left| <> \\right| <>",  { i(1), i(2) }), { condition = in_mathzone }),
-  s({ trig = "lra",   snippetType = "autosnippet" }, fmta("\\left<< <> \\right>> <>",  { i(1), i(2) }), { condition = in_mathzone }),
+s({ trig = "lr(",  snippetType = "autosnippet", wordTrig = false }, fmta("\\left( <> \\right) <>",     { i(1), i(2) }), { condition = in_mathzone }),
+s({ trig = "lr{",  snippetType = "autosnippet", wordTrig = false }, fmta("\\left\\{ <> \\right\\} <>", { i(1), i(2) }), { condition = in_mathzone }),
+s({ trig = "lr[",  snippetType = "autosnippet", wordTrig = false }, fmta("\\left[ <> \\right] <>",     { i(1), i(2) }), { condition = in_mathzone }),
+s({ trig = "lr|",  snippetType = "autosnippet", wordTrig = false }, fmta("\\left| <> \\right| <>",     { i(1), i(2) }), { condition = in_mathzone }),
+s({ trig = "lra",  snippetType = "autosnippet", wordTrig = false }, fmta("\\left<< <> \\right>> <>",   { i(1), i(2) }), { condition = in_mathzone }),
 
   -- ── Visual selection operations ───────────────────────────────────────────
   -- Select text in visual mode, then trigger these to wrap the selection.

@@ -17,6 +17,10 @@ alias fetch="fastfetch"
 alias py="python3"
 alias nv="nvim"
 
+# Gentoo specific
+alias uses="equery uses"
+alias tme="tmux new -s emerge"
+
 # Extra command options
 alias cp="cp -iv"
 alias mv="mv -iv"
