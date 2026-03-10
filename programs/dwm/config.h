@@ -162,6 +162,10 @@ static Key keys[] = {
   // Timer - bound to F7
   { 0, XF86XK_AudioPlay, spawn, SHCMD("$HOME/.local/bin/sb-scripts/timer_toggle.sh ; pkill -RTMIN+8 dwmblocks") },
 
+  // Brightness control
+  { 0, XF86XK_MonBrightnessDown, spawn, SHCMD("brightnessctl set 10%-") },
+  { 0, XF86XK_MonBrightnessUp,   spawn, SHCMD("brightnessctl set 10%+") },
+
 	// Tagging
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
