@@ -1,19 +1,19 @@
-//Modify this file to change what commands output to your statusbar, and recompile using the make command.
 static const Block blocks[] = {
-	/*Icon*/		/*Command*/	 		/*Update Interval*/	/*Update Signal*/
-//  	{"", 		".local/bin/sb-scripts/music",	  		60,		        4},
-//
-    {" ", ".local/bin/sb-scripts/timer.sh",              30,       8     },
+	/*Icon*/		/*Command*/	 		                  /*Interval*/	/*Signal*/
 
-  	{" ", 		".local/bin/sb-scripts/kernel",	  	0,		        5},
+  {" ",     ".local/bin/sb-scripts/timer.sh",   30,           8},
 
-	{" 󰔐 ", 		".local/bin/sb-scripts/cpu_temp",	        5,		        6},
+  {" ", 		".local/bin/sb-scripts/kernel",	  	0,		        5},
 
-	{" ", 		".local/bin/sb-scripts/memory",	        2,		        7},
+	{" 󰔐 ", 	".local/bin/sb-scripts/cpu_temp",	  5,		        6},
 
-	{" 🔊 ", 	".local/bin/sb-scripts/volume",		2,		        10},
+	{" ", 		".local/bin/sb-scripts/memory",	    2,		        7},
 
-	{" ", 		".local/bin/sb-scripts/kbdlayout",		0,		        20},
+	{" 🔊 ", 	".local/bin/sb-scripts/volume",		  2,		        10},
+
+	{" ", 		".local/bin/sb-scripts/kbdlayout",	0,		        20},
+
+	{" ", 		".local/bin/sb-scripts/battery",	  20,		        40},
 	
 	{" ", 		".local/bin/sb-scripts/clock",			5,		        30},
 };

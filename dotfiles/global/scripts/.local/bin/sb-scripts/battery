@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# Path to battery — change BAT0 to BAT1 if needed
+BAT="/sys/class/power_supply/BAT0"
+
+# Exit silently if no battery found (e.g. on a desktop)
+[ -d "$BAT" ] || exit 0
+
+status=$(cat "$BAT/status")
+capacity=$(cat "$BAT/capacity")
+
+case "$status" in
+    Charging)    icon=$(printf '\uf0e7') ;;  # nf-fa-bolt (charging)
+    Discharging)
+        if   [ "$capacity" -ge 90 ]; then icon=$(printf '\uf240')
+        elif [ "$capacity" -ge 70 ]; then icon=$(printf '\uf241')
+        elif [ "$capacity" -ge 50 ]; then icon=$(printf '\uf242')
+        elif [ "$capacity" -ge 20 ]; then icon=$(printf '\uf243')
+        else                              icon=$(printf '\uf244')
+        fi
+        ;;
+    Full)        icon=$(printf '\uf240') ;;  # 
+    *)           icon="?" ;;
+esac
+
+echo "$icon  $capacity% "
