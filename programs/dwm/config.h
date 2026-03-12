@@ -96,8 +96,9 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
+#define DMENU_HEIGHT "22"
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[]    = { "dmenu_run", "-h", "22", "-p", "Run: ", NULL };
+static const char *dmenucmd[]    = { "dmenu_run", "-h", DMENU_HEIGHT, "-p", "Run: ", NULL };
 static const char *termcmdzsh[]  = { "kitty", "-e", "zsh",  NULL };
 static const char *termcmdbash[]  = { "kitty", "-e", "bash",  NULL };
 
@@ -143,8 +144,11 @@ static Key keys[] = {
 	{ MODKEY|Mod1Mask,             	XK_e,      spawn,          SHCMD("pcmanfm") },
 	{ MODKEY|Mod1Mask,             	XK_l,      spawn,          SHCMD("slock") },
 	{ MODKEY|Mod1Mask,             	XK_h,      spawn,          SHCMD("virt-manager") },
-	{ MODKEY|Mod1Mask,             	XK_q,      spawn,          SHCMD("dmpowermenu") },
 	{ MODKEY|Mod1Mask,             	XK_p,      spawn,          SHCMD("killall picom || picom &") },
+
+  // dmenu scripts
+  { MODKEY|Mod1Mask, XK_q, spawn, SHCMD("dmpowermenu -h " DMENU_HEIGHT) },
+  { MODKEY|Mod1Mask, XK_m, spawn, SHCMD("dmwebapps -h "   DMENU_HEIGHT) },
 
 	// Restart the dwmblocks statusbar
 	{ MODKEY|Mod1Mask,             	XK_F5,     spawn,          SHCMD("killall dwmblocks && dwmblocks") },

@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+# Web apps
+declare -A apps=(
+    ["discord"]="https://discord.com"
+    ["tidal"]="https://listen.tidal.com"
+)
+
+# Helper functions
+FIREFOX_DIR="$HOME/.firefox"
+
+ensure_profile() {
+    local name="$1"
+    local profile_dir="$FIREFOX_DIR/$name"
+
+    if [[ ! -d "$profile_dir" ]]; then
+        firefox --CreateProfile "$name $profile_dir" &>/dev/null
+        notify-send "Firefox Profiles" "Created new profile: $name" --icon=firefox
+    fi
+}
+
+launch_app() {
+    local name="$1"
+    local url="${apps[$name]}"
+
+    ensure_profile "$name"
+    firefox --profile "$FIREFOX_DIR/$name/" \
+            --no-remote \
+            --class fakefull \
+            --kiosk \
+            --private \
+            "$url" &
+}
+
+# Dmenu for the choice
+menu_entries=$(printf '%s\n' "${!apps[@]}" | sort; echo "manage")
+choice=$(echo "$menu_entries" | dmenu -i -p "Open webapp:" "$@")
+
+[[ -z "$choice" ]] && exit 0   # user dismissed dmenu
+
+case "$choice" in
+    manage)
+        firefox --ProfileManager &
+        ;;
+    *)
+        if [[ -v apps["$choice"] ]]; then
+            launch_app "$choice"
+        else
+            notify-send "webapps.sh" "Unknown entry: $choice"
+        fi
+        ;;
+esac

@@ -11,7 +11,7 @@
 [ -x "$(command -v eza)" ] && alias ls="eza"
 
 # Shorter commands
-alias ll="ls -l"
+alias ll="ls -la"
 alias la="ls -a"
 alias fetch="fastfetch"
 alias py="python3"

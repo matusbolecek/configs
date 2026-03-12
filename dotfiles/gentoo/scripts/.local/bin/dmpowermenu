@@ -4,7 +4,7 @@
 OPTIONS="Poweroff\nRestart\nHibernate\nLogout\nCancel"
 
 # Show dmenu
-CHOICE=$(echo -e "$OPTIONS" | dmenu -i -p "Power Menu:")
+CHOICE=$(echo -e "$OPTIONS" | dmenu -i -p "Power Menu:" "$@")
 
 case "$CHOICE" in
     Poweroff)
