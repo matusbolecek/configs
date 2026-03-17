@@ -243,11 +243,11 @@ return {
 
   -- Expand \sum and \prod with limits (manual trigger, not auto)
   s({ trig = "\\sum" },
-    fmta("\\sum_{<>=<>}^{<>} <>", { i(1, "i"), i(2, "1"), i(3, "N"), i(4) }),
+    fmta("\\sum_{<>=<>}^{<>} <>", { i(1, "i"), i(2, "1"), i(3, "n"), i(4) }),
     { condition = in_mathzone }
   ),
   s({ trig = "\\prod" },
-    fmta("\\prod_{<>=<>}^{<>} <>", { i(1, "i"), i(2, "1"), i(3, "N"), i(4) }),
+    fmta("\\prod_{<>=<>}^{<>} <>", { i(1, "i"), i(2, "1"), i(3, "n"), i(4) }),
     { condition = in_mathzone }
   ),
 

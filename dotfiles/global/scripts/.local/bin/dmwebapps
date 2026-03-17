@@ -2,7 +2,7 @@
 
 # Web apps
 declare -A apps=(
-    ["discord"]="https://discord.com"
+    ["discord"]="https://discord.com/channels/@me"
     ["tidal"]="https://listen.tidal.com"
 )
 
