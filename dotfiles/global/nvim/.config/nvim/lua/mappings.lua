@@ -15,20 +15,22 @@ vim.api.nvim_create_autocmd("FileType", {
     end
 
     -- Molten
-    vim.keymap.set("n", "<localleader>mi", ":MoltenInit<CR>",                  opts("Molten: initialize kernel"))
-    vim.keymap.set("n", "<localleader>me", ":MoltenEvaluateOperator<CR>",      opts("Molten: run operator selection"))
-    vim.keymap.set("n", "<localleader>ml", ":MoltenEvaluateLine<CR>",          opts("Molten: evaluate line"))
-    vim.keymap.set("n", "<localleader>mr", ":MoltenReevaluateCell<CR>",        opts("Molten: re-evaluate cell"))
+    vim.keymap.set("n", "<localleader>mi", ":MoltenInit<CR>", opts("Molten: initialize kernel"))
+    vim.keymap.set("n", "<localleader>me", ":MoltenEvaluateOperator<CR>", opts("Molten: run operator selection"))
+    vim.keymap.set("n", "<localleader>ml", ":MoltenEvaluateLine<CR>", opts("Molten: evaluate line"))
+    vim.keymap.set("n", "<localleader>mr", ":MoltenReevaluateCell<CR>", opts("Molten: re-evaluate cell"))
     vim.keymap.set("v", "<localleader>mv", ":<C-u>MoltenEvaluateVisual<CR>gv", opts("Molten: evaluate visual selection"))
-    vim.keymap.set("n", "<localleader>md", ":MoltenDelete<CR>",                opts("Molten: delete cell"))
-    vim.keymap.set("n", "<localleader>mh", ":MoltenHideOutput<CR>",            opts("Molten: hide output"))
+    vim.keymap.set("n", "<localleader>md", ":MoltenDelete<CR>", opts("Molten: delete cell"))
+    vim.keymap.set("n", "<localleader>mh", ":MoltenHideOutput<CR>", opts("Molten: hide output"))
     vim.keymap.set("n", "<localleader>mo", ":noautocmd MoltenEnterOutput<CR>", opts("Molten: enter output window"))
 
     -- Quarto
-    vim.keymap.set("n", "<localleader>ql", ":QuartoRunLine<CR>",               opts("Quarto: run line"))
-    vim.keymap.set("n", "<localleader>qa", ":QuartoRunAll<CR>",                opts("Quarto: run all cells"))
-    vim.keymap.set("n", "<localleader>qc", ":QuartoRunCell<CR>",               opts("Quarto: run cell"))
-    vim.keymap.set("v", "<localleader>qv", ":QuartoRunRange<CR>",              opts("Quarto: run visual range"))
+    vim.keymap.set("n", "<localleader>ql", function() require("quarto.runner").run_line() end, opts("Quarto: run line"))
+    vim.keymap.set("n", "<localleader>qa", function() require("quarto.runner").run_all(true) end,
+      opts("Quarto: run all cells"))
+    vim.keymap.set("n", "<localleader>qc", function() require("quarto.runner").run_cell() end, opts("Quarto: run cell"))
+    vim.keymap.set("v", "<localleader>qv", function() require("quarto.runner").run_range() end,
+      opts("Quarto: run visual range"))
 
     -- Insert python cell
     vim.keymap.set("n", "<A-c>", function()
@@ -42,7 +44,7 @@ vim.api.nvim_create_autocmd("FileType", {
       vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "x", false)
       local start_row = vim.fn.line("'<")
       local end_row   = vim.fn.line("'>")
-      vim.api.nvim_buf_set_lines(0, end_row,       end_row,       false, { "```" })
+      vim.api.nvim_buf_set_lines(0, end_row, end_row, false, { "```" })
       vim.api.nvim_buf_set_lines(0, start_row - 1, start_row - 1, false, { "```{python}" })
     end, opts("Wrap selection in python cell"))
   end,

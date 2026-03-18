@@ -23,6 +23,9 @@ mkvenv() {
     pyperclip
     nbformat
     pillow
+    pyyaml
+    nbclient
+    nbformat
   )
 
   python3 -m venv "$venv_dir" && \
