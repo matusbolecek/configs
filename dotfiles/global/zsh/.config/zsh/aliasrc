@@ -49,16 +49,19 @@ alias MS="cd ~/repos/uni/Semester\ 2/MS/"
 # Mac tiling
 alias fm="./.config/toggle-focus.sh"
 
-# Zathura scripting 
-zo() {
-  export _TABBED_XID=$(tabbed -c -b -d)
-  zathura -e $_TABBED_XID "$1" &
-}
+# Zathura scripting - broke on dwm so not used
+#zo() {
+#  export _TABBED_XID=$(tabbed -c -b -d)
+#  zathura -e $_TABBED_XID "$1" &
+#}
+#
+#z() {
+#  if ! xdotool getwindowname $_TABBED_XID &>/dev/null; then
+#    zo "$1"
+#  else
+#    zathura -e $_TABBED_XID "$1" &
+#  fi
+#}
 
-z() {
-  if ! xdotool getwindowname $_TABBED_XID &>/dev/null; then
-    zo "$1"
-  else
-    zathura -e $_TABBED_XID "$1" &
-  fi
-}
+alias z="zathura"
+
