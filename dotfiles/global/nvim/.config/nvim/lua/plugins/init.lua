@@ -99,18 +99,21 @@ return {
   {
     "L3MON4D3/LuaSnip",
     config = function(_, opts)
-      require("luasnip").setup(vim.tbl_deep_extend("force", opts or {}, {
+      local ls = require("luasnip")
+      ls.setup(vim.tbl_deep_extend("force", opts or {}, {
         enable_autosnippets = true,
       }))
       require("luasnip.loaders.from_lua").load({ paths = "./lua/snippets" })
 
-      -- LuaSnip jumps on C-l/C-h, never on Tab
+      -- qmd, rmd support
+      ls.filetype_extend("quarto", { "markdown" })
+      ls.filetype_extend("rmd", { "markdown" })
+
+      -- jump only on C-l, C-h
       vim.keymap.set({ "i", "s" }, "<C-l>", function()
-        local ls = require("luasnip")
         if ls.jumpable(1) then ls.jump(1) end
       end)
       vim.keymap.set({ "i", "s" }, "<C-h>", function()
-        local ls = require("luasnip")
         if ls.jumpable(-1) then ls.jump(-1) end
       end)
     end,
@@ -126,8 +129,11 @@ return {
   {
     "MeanderingProgrammer/render-markdown.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter", "3rd/image.nvim" },
-    ft = { "markdown" },
+    ft = { "markdown", "quarto", "rmd" },
     opts = {
+      code = {
+        enabled = false,
+      },
       latex = {
         enabled = true,
         converter = "latex2text",

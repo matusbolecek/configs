@@ -60,13 +60,13 @@ end
 
 M.setup = function()
   local function set_matrix_keys()
-    vim.keymap.set("i", "<Tab>", function()
+    vim.keymap.set("i", "<M-space>", function()
       if in_matrix_env() then
         vim.api.nvim_feedkeys(" & ", "n", true)
       else
-        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", true)
+        vim.api.nvim_feedkeys(" ", "n", true)
       end
-    end, { buffer = true, desc = "Matrix & or normal Tab" })
+    end, { buffer = true, desc = "Matrix & or space" })
 
     vim.keymap.set("i", "<CR>", function()
       if in_matrix_env() then
@@ -78,7 +78,7 @@ M.setup = function()
   end
 
   vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "markdown", "tex", "plaintex" },
+    pattern = { "markdown", "tex", "plaintex", "quarto", "rmd" },
     callback = set_matrix_keys,
   })
 end

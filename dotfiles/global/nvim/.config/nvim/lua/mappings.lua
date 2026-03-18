@@ -32,6 +32,30 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.keymap.set("v", "<localleader>qv", function() require("quarto.runner").run_range() end,
       opts("Quarto: run visual range"))
 
+    -- Quarto header
+    vim.keymap.set("n", "<localleader>qh", function()
+      vim.api.nvim_buf_set_lines(0, 0, 0, false, {
+        "---",
+        'title: "Notebook"',
+        'author: "Matus Bolecek"',
+        "date: today",
+        "format:",
+        "  pdf:",
+        "    pdf-engine: xelatex",
+        "    documentclass: article",
+        "    geometry: margin=2.5cm",
+        "    fontsize: 11pt",
+        "    colorlinks: true",
+        "    include-in-header:",
+        "      text: |",
+        "        \\setlength{\\parskip}{2pt}",
+        "        \\setlength{\\parsep}{0pt}",
+        "---",
+        "",
+      })
+      vim.api.nvim_win_set_cursor(0, { 1, 0 })
+    end, opts("Quarto: insert header"))
+
     -- Insert python cell
     vim.keymap.set("n", "<A-c>", function()
       local row = vim.api.nvim_win_get_cursor(0)[1]
