@@ -53,7 +53,7 @@ fi
 picom &
 dwmblocks &
 dunst &
-xwallpaper --zoom "$(find ~/repos/linux/wallpapers/1 -type f | shuf -n 1)" &
+xwallpaper --zoom "$(find ~/repos/configs/wallpapers/1 -type f | shuf -n 1)" &
 
 # Sound
 export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"

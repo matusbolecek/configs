@@ -54,5 +54,5 @@ dwmblocks &
 xrandr --output DP-0 --off --output DP-1 --off --output HDMI-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2 --off --output DP-3 --off --output DP-4 --primary --mode 1920x1080 --rate 144.00 --pos 1920x0 --rotate normal --output DP-5 --off --output USB-C-0 --off &
 dbus-launch --exit-with-session &
 dunst &
-xwallpaper --zoom "$(find ~/repos/linux/wallpapers/1 -type f | shuf -n 1)" &
+xwallpaper --zoom "$(find ~/repos/configs/wallpapers/1 -type f | shuf -n 1)" &
 exec dwm
