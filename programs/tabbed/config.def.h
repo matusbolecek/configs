@@ -4,7 +4,7 @@
 static const char font[]        = "Mononoki Nerd Font:size=9:antialias=true:autohint=true";
 static const char* normbgcolor  = "#1e1e2e"; /* Base */
 static const char* normfgcolor  = "#cdd6f4"; /* Text */
-static const char* selbgcolor   = "#74c7ec"; /* Sapphire (matches col_4) */
+static const char* selbgcolor   = "#74c7ec"; 
 static const char* selfgcolor   = "#1e1e2e"; /* Base (dark on accent) */
 static const char* urgbgcolor   = "#1e1e2e"; /* Base */
 static const char* urgfgcolor   = "#f38ba8"; /* Red */
