@@ -7,7 +7,7 @@ set icons true
 set rulerfmt "%d  |%a  |%p  |\033[7;31m %m \033[0m  |\033[7;33m %c \033[0m  |\033[7;35m %s \033[0m  |\033[7;34m %f \033[0m  |%i/%t"
 
 # paru -S lfutils-git lfutils-meta
-set previewer /tmp/lfpreview-debug.sh
+set previewer lfpreviewer 
 set cleaner lfcleaner
 set preview true
 set ratios 1:1:2
