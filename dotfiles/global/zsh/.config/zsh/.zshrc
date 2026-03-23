@@ -46,7 +46,7 @@ _comp_options+=(globdots)
 # Use lf to switch directories and bind it to ctrl-f
 lfcd () {
     tmp="$(mktemp)"
-    lfrun -last-dir-path="$tmp" "$@"
+    lf -last-dir-path="$tmp" "$@"
     if [ -f "$tmp" ]; then
         dir="$(cat "$tmp")"
         rm -f "$tmp" >/dev/null
