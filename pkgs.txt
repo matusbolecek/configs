@@ -19,9 +19,8 @@ zsh-vi-mode
 xwallpaper
 picom
 firefox
-surf-git
 maim
 xclip
 slop
-tree-sitter-git
+tree-sitter
 xdotool
