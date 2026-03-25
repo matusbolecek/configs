@@ -1,9 +1,9 @@
 # configs / dotfiles
-![Image of my desktop environment](.assets/desktop1.png)
-
 # About:
 This repo serves as a backup for all my config file I use across all of my systems. Moreover, it is used to quickly deploy my work environment and allow me to get to work fast. My focus is to build a fast and effective system with minimal bloat and system overhead. Most included software is focused on a keyboard-centric workflow.
 The repository is focused mainly on my linux systems (Gentoo / Arch), though some configurations for my mac system (mac-specific kitty.conf, .Rprofile, as well as a yabai and skhd configuration for occasional dynamic tiling) are also included.
+
+![Image of my desktop environment](.assets/desktop1.png)
 
 # What is included? 
 
