@@ -66,6 +66,8 @@ return {
         "markdown_inline",
         "yaml",
         "latex",
+	"c",
+	"cpp"
       })
     end,
   },
@@ -212,4 +214,18 @@ return {
     "jmbuhr/otter.nvim",
     opts = {},
   },
+{
+  "mfussenegger/nvim-lint",
+  event = { "BufWritePost" },
+  config = function()
+    require("lint").linters_by_ft = {
+      cpp = { "clangtidy" },
+      c   = { "clangtidy" },
+    }
+    vim.api.nvim_create_autocmd("BufWritePost", {
+      callback = function() require("lint").try_lint() end,
+    })
+  end,
+},
+
 }

@@ -4,7 +4,7 @@ local nvlsp = require("nvchad.configs.lspconfig")
 -- Initialize NvChad's default global mappings
 nvlsp.defaults()
 
-local servers = { "html", "cssls", "pyright", "r_language_server", "marksman"}
+local servers = { "html", "cssls", "pyright", "r_language_server", "marksman", "clangd" }
 
 for _, name in ipairs(servers) do
   local config = lsp_configs[name] and lsp_configs[name].default_config or {}

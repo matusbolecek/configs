@@ -4,6 +4,8 @@ local options = {
     r = { "air" },
     rmd = { "injected" },
     python = { "black" },
+    cpp = { "clang_format" },
+    c = { "clang_format" },
   },
   formatters = {
     black = {
