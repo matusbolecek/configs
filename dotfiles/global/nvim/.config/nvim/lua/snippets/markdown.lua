@@ -229,6 +229,7 @@ return {
   s({ trig = "**",   snippetType = "autosnippet" }, { t("\\cdot") },     { condition = in_mathzone }),
   s({ trig = "para", snippetType = "autosnippet" }, { t("\\parallel") }, { condition = in_mathzone }),
   s({ trig = "...",  snippetType = "autosnippet" }, { t("\\dots") },     { condition = in_mathzone }),
+  s({ trig = "v..",  snippetType = "autosnippet" }, { t("\\vdots") },     { condition = in_mathzone }),
   s({ trig = "+-",   snippetType = "autosnippet" }, { t("\\pm") },       { condition = in_mathzone }),
   s({ trig = "-+",   snippetType = "autosnippet" }, { t("\\mp") },       { condition = in_mathzone }),
 

@@ -8,6 +8,9 @@ M.setup = function()
 
     local cmd = e == "qmd"
         and { "quarto", "render", f, "--to", "pdf" }
+        or e == "tex"
+        and { "pdflatex", "-interaction=nonstopmode", "-output-directory", vim.fn.expand("%:p:h"), f }
+
         or { "pandoc", f, "-o", vim.fn.expand("%:p:r") .. ".pdf", "--pdf-engine=xelatex" }
 
     local stderr_lines = {}
