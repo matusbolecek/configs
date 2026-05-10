@@ -1,0 +1,5 @@
+# Packages from a file 
+export PKG_FILE="~/repos/configs/pkgs/ubuntu.txt"
+alias rebuild="xargs sudo apt install -y < $PKG_FILE"
+
+alias pkgs="$EDITOR $PKG_FILE" 

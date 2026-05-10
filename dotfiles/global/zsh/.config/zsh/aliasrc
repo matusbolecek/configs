@@ -31,6 +31,7 @@ alias stow="stow -t ~"
 # Configs
 alias zshrc="$EDITOR ~/.config/zsh/.zshrc"
 alias aliasrc="$EDITOR ~/.config/zsh/aliasrc"
+alias distrospecific="$EDITOR ~/.config/zsh/distrospecific"
 alias nvimrc="$EDITOR ~/.config/nvim/init.lua"
 alias vimplug="$EDITOR ~/.config/nvim/lua/plugins/init.lua"
 alias kitty.conf="$EDITOR ~/.config/kitty/kitty.conf"

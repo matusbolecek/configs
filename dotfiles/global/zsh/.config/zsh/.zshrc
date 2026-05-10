@@ -34,7 +34,7 @@ export READER="zathura"
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/zshpyrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/zshpyrc"
 
 # Source distro specific to avoid loading unecessary aliases
-# [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/distrospecific" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/distrospecific"
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/distrospecific" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/distrospecific"
 
 # Basic auto/tab complete:
 autoload -U compinit
