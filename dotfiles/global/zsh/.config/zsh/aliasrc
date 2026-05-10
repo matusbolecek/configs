@@ -47,9 +47,6 @@ alias IPSA="cd ~/repos/uni/Semester\ 2/IPSA/"
 alias LA="cd ~/repos/uni/Semester\ 2/LinAlg/"
 alias MS="cd ~/repos/uni/Semester\ 2/MS/"
 
-# Mac tiling
-alias fm="./.config/toggle-focus.sh"
-
 # Zathura scripting - broke on dwm so not used
 #zo() {
 #  export _TABBED_XID=$(tabbed -c -b -d)

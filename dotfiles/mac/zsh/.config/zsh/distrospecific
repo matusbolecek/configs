@@ -1,0 +1,13 @@
+# Distro-specific: MacOS
+
+# Homebrew in $PATH
+export PATH=/opt/homebrew/bin:$PATH
+
+# Plugins
+export AUTOSUGGESTIONS_PATH="/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+export VIMODE_PATH="/opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.zsh"
+export SYNTAXHIGHLIGHTING_PATH="/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+# Mac tiling
+alias fm="./.config/toggle-focus.sh"
+

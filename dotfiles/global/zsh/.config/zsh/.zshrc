@@ -13,9 +13,6 @@ export KEYTIMEOUT=1
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-# mac
-export PATH=/opt/homebrew/bin:$PATH
-
 # History
 HISTSIZE=10000000
 SAVEHIST=10000000
@@ -33,7 +30,7 @@ export READER="zathura"
 # Source python specific
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/zshpyrc" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/zshpyrc"
 
-# Source distro specific to avoid loading unecessary aliases
+# Source distro specific
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/distrospecific" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/distrospecific"
 
 # Basic auto/tab complete:
@@ -69,27 +66,12 @@ function source_plugin() {
 }
 
 # Autosuggestions
-source_plugin \
-    "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" \
-    "/usr/share/zsh/site-functions/zsh-autosuggestions.zsh" \
-    "/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh" \
-    "/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-
+source_plugin $AUTOSUGGESTIONS_PATH 
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # Vi mode 
-source_plugin \
-  "/usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.zsh" \
-  "/opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.zsh" \
-  "/usr/local/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.zsh"
-
-# Ensure autosuggestions work with vim mode
+source_plugin $VIMODE_PATH 
 ZVM_INIT_MODE=sourcing
 
 # Syntax highlighting
-source_plugin \
-    "/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \
-    "/usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh" \
-    "/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" \
-    "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-
+source_plugin $SYNTAXHIGHLIGHTING_PATH 
