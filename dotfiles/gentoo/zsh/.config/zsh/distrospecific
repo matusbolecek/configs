@@ -1,4 +1,4 @@
 # Distrospecific: Gentoo
 
 export AUTOSUGGESTIONS_PATH="/usr/share/zsh/site-functions/zsh-autosuggestions.zsh"
-export SYNTAXHIGHLIGHTING_PATH="/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+export SYNTAXHIGHLIGHTING_PATH="/usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh"
