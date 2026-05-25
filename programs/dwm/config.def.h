@@ -13,10 +13,11 @@ static const int user_bh            = 22;        /* 0 means that dwm will calcul
 static const int horizpadbar        = 2;        /* horizontal padding for statusbar */
 static const int vertpadbar         = 0;        /* vertical padding for statusbar */
 
-static const char *fonts[]     = {"Mononoki Nerd Font:size=9:antialias=true:autohint=true",
-                                  "Hack:size=8:antialias=true:autohint=true",
-                                  "JoyPixels:size=10:antialias=true:autohint=true"
-                                  };
+static const char *fonts[] = {
+    "Mononoki Nerd Font:size=9:antialias=true:autohint=true",
+    "Hack:size=8:antialias=true:autohint=true",
+    "Noto Color Emoji:size=10:antialias=true"
+};
 
                                   
 /* catpuccin.com/palette */

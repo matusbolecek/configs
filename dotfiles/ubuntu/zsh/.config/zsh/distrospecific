@@ -3,3 +3,7 @@ export PKG_FILE="~/repos/configs/pkgs/ubuntu.txt"
 alias rebuild="xargs sudo apt install -y < $PKG_FILE"
 
 alias pkgs="$EDITOR $PKG_FILE" 
+
+export AUTOSUGGESTIONS_PATH="$HOME/.zsh-plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+export SYNTAXHIGHLIGHTING_PATH="$HOME/.zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+export VIMODE_PATH="$HOME/.zsh-plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
