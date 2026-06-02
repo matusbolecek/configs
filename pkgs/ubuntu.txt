@@ -53,3 +53,6 @@ python3
 network-manager-gnome
 libxml2-dev
 pandoc
+python3-venv
+python3-pip
+tree
