@@ -56,3 +56,7 @@ pandoc
 python3-venv
 python3-pip
 tree
+libcrypt-dev
+xfonts-base 
+xfonts-75dpi 
+xfonts-100dpi

@@ -16,7 +16,7 @@ static const int failonclear = 1;
 static const int monitortime = 30;
 
 /* default message */
-static const char * message = "Gentoo Linux";
+static const char * message = "Slock";
 
 /* text color */
 static const char * text_color = "#ffffff";
