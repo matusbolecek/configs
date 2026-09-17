@@ -45,3 +45,4 @@ rm ~/.config/zsh/distrospecific
 stow -t ~ zsh
 cd
 rm .zshrc
+zsh

@@ -94,7 +94,7 @@ return {
     "lervag/vimtex",
     lazy = false,
     init = function()
-      vim.g.vimtex_view_method = "zathura"
+      vim.g.vimtex_view_method = vim.fn.has("mac") == 1 and "skim" or "zathura"
       vim.g.vimtex_syntax_enabled = 1
     end,
   },
@@ -107,9 +107,11 @@ return {
       }))
       require("luasnip.loaders.from_lua").load({ paths = "./lua/snippets" })
 
-      -- qmd, rmd support
-      ls.filetype_extend("quarto", { "markdown" })
-      ls.filetype_extend("rmd", { "markdown" })
+      -- shared math snippets; qmd, rmd, tex support
+      ls.filetype_extend("markdown", { "math" })
+      ls.filetype_extend("quarto", { "markdown", "math" })
+      ls.filetype_extend("rmd", { "markdown", "math" })
+      ls.filetype_extend("tex", { "math" })
 
       -- jump only on C-l, C-h
       vim.keymap.set({ "i", "s" }, "<C-l>", function()

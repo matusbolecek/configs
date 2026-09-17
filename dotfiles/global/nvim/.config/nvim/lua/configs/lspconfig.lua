@@ -4,7 +4,7 @@ local nvlsp = require("nvchad.configs.lspconfig")
 -- Initialize NvChad's default global mappings
 nvlsp.defaults()
 
-local servers = { "html", "cssls", "pyright", "r_language_server", "marksman", "clangd" }
+local servers = { "html", "cssls", "pyright", "r_language_server", "marksman", "clangd", "texlab" }
 
 for _, name in ipairs(servers) do
   local config = lsp_configs[name] and lsp_configs[name].default_config or {}
@@ -40,6 +40,15 @@ for _, name in ipairs(servers) do
    if name == "marksman" then
     config.filetypes = { "markdown", "rmd", "quarto" }
    end
+
+  if name == "texlab" then
+    config.settings = {
+      texlab = {
+        chktex = { onOpenAndSave = true },
+        latexFormatter = "none", -- formatting is done by tex-fmt via conform
+      },
+    }
+  end
 
   vim.lsp.config[name] = config
   vim.lsp.enable(name)

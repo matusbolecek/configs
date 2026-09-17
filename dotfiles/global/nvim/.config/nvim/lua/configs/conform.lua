@@ -6,6 +6,7 @@ local options = {
     python = { "black" },
     cpp = { "clang_format" },
     c = { "clang_format" },
+    tex = { "tex-fmt" },
   },
   formatters = {
     black = {

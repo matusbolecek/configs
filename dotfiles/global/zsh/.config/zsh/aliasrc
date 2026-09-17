@@ -43,9 +43,9 @@ alias ytv="yt -f bestvideo"
 alias yta="yt --add-metadata -f bestaudio"
 
 # School 
-alias IPSA="cd ~/repos/uni/Semester\ 2/IPSA/"
-alias LA="cd ~/repos/uni/Semester\ 2/LinAlg/"
-alias MS="cd ~/repos/uni/Semester\ 2/MS/"
+alias ADS="cd ~/repos/uni/Semester\ 3/ADS/"
+alias SML="cd ~/repos/uni/Semester\ 3/StatML/"
+alias CIN="cd ~/repos/uni/Semester\ 3/CausalIn/"
 
 # Zathura scripting - broke on dwm so not used
 #zo() {
